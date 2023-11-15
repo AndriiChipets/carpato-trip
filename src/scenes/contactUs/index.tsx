@@ -75,6 +75,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               action="https://formsubmit.co/54f119df20956c0274f0677738427c1f"
               method="POST"
             >
+              {errors.firstName && (
+                <p className="mt-1 text-red-500">
+                  {errors.firstName.type === "required" &&
+                    "This field is required."}
+                  {errors.firstName.type === "maxLength" &&
+                    "Max length is a 100 char."}
+                </p>
+              )}
               <input
                 className={inputStyles}
                 type="text"
@@ -84,14 +92,15 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 100,
                 })}
               />
-              {errors.name && (
-                <p className="mt-1 text-primary-500">
-                  {errors.name.type === "required" && "This field is required."}
-                  {errors.name.type === "maxLength" &&
+
+              {errors.lastName && (
+                <p className="mt-1 text-red-500">
+                  {errors.lastName.type === "required" && 
+                  "This field is required."}
+                  {errors.lastName.type === "maxLength" &&
                     "Max length is a 100 char."}
                 </p>
               )}
-
               <input
                 className={inputStyles}
                 type="text"
@@ -101,14 +110,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 100,
                 })}
               />
-              {errors.name && (
-                <p className="mt-1 text-primary-500">
-                  {errors.name.type === "required" && "This field is required."}
-                  {errors.name.type === "maxLength" &&
-                    "Max length is a 100 char."}
+
+              {errors.email && (
+                <p className="mt-1 text-red-500">
+                  {errors.email.type === "required" &&
+                    "This field is required."}
+                  {errors.email.type === "pattern" && "Invalid email adress."}
                 </p>
               )}
-
               <input
                 className={inputStyles}
                 type="text"
@@ -118,14 +127,15 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 })}
               />
-              {errors.email && (
-                <p className="mt-1 text-primary-500">
-                  {errors.email.type === "required" &&
+
+              {errors.message && (
+                <p className="mt-1 text-red-500">
+                  {errors.message.type === "required" &&
                     "This field is required."}
-                  {errors.email.type === "pattern" && "Invalid email adress."}
+                  {errors.message.type === "maxLength" &&
+                    "Max length is a 2000 char."}
                 </p>
               )}
-
               <textarea
                 className={inputStyles}
                 rows={4}
@@ -136,14 +146,6 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 2000,
                 })}
               />
-              {errors.message && (
-                <p className="mt-1 text-primary-500">
-                  {errors.message.type === "required" &&
-                    "This field is required."}
-                  {errors.message.type === "maxLength" &&
-                    "Max length is a 2000 char."}
-                </p>
-              )}
 
               <button
                 type="submit"
