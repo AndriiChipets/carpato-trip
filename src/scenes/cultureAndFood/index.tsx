@@ -11,7 +11,7 @@ import CultureFood from "./CultureAndFood";
 
 const classes: Array<CultureAndFoodType> = [
   {
-    name: "Magic Carpaty",
+    name: "Magic Carpathians",
     description:
       "There are only two ways to live your life. The first one is as if no magic exists in our life and the second way there is only magic around us.",
     image: image1,
